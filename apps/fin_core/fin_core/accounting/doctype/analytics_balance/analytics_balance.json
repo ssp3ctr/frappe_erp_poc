@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "hash",
+ "creation": "2026-03-18 10:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "analytics",
+  "column_break_1",
+  "last_transaction",
+  "balances_section",
+  "balance_qty",
+  "column_break_2",
+  "balance_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "analytics",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Аналітика",
+   "options": "Analytics",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_transaction",
+   "fieldtype": "Link",
+   "label": "Остання транзакція",
+   "options": "Fin Transaction",
+   "read_only": 1
+  },
+  {
+   "fieldname": "balances_section",
+   "fieldtype": "Section Break",
+   "label": "Поточні залишки"
+  },
+  {
+   "default": "0",
+   "fieldname": "balance_qty",
+   "fieldtype": "Float",
+   "label": "Залишок (К-сть)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "balance_amount",
+   "fieldtype": "Currency",
+   "label": "Залишок (Сума)",
+   "options": "UAH",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "modified": "2026-03-18 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Analytics Balance",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

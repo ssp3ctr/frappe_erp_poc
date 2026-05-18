@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "creation": "2026-05-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "istable": 1,
+ "field_order": [
+  "stock_unit",
+  "item",
+  "warehouse",
+  "qty",
+  "status",
+  "parent_unit_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "stock_unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Stock Unit",
+   "options": "Stock Unit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Товар",
+   "options": "Analytics",
+   "read_only": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Склад",
+   "options": "Warehouse",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Кількість",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Статус",
+   "read_only": 1
+  },
+  {
+   "fieldname": "parent_unit_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Батьківський юніт",
+   "options": "Stock Unit",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Fin Order Stock Unit",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

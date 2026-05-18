@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "field:analytics_name",
+ "creation": "2026-03-17 10:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "section_basic",
+  "analytics_name",
+  "category",
+  "type",
+  "column_break_1",
+  "disabled",
+  "is_group",
+  "parent_analytics",
+  "section_settings",
+  "currency",
+  "uom",
+  "column_break_2",
+  "disallow_negative_balance",
+  "section_description",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_basic",
+   "fieldtype": "Section Break",
+   "label": "Основна інформація"
+  },
+  {
+   "fieldname": "analytics_name",
+   "fieldtype": "Data",
+   "label": "Назва аналітики",
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Категорія",
+   "options": "Analytics Type",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Тип",
+   "options": "Currency\nQuantity",
+   "default": "Currency",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Вимкнено"
+  },
+  {
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Це група"
+  },
+  {
+   "fieldname": "parent_analytics",
+   "fieldtype": "Link",
+   "label": "Батьківська аналітика",
+   "options": "Analytics"
+  },
+  {
+   "fieldname": "section_settings",
+   "fieldtype": "Section Break",
+   "label": "Налаштування виміру"
+  },
+  {
+   "depends_on": "eval:doc.type == 'Currency'",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Валюта",
+   "options": "Currency"
+  },
+  {
+   "depends_on": "eval:doc.type == 'Quantity'",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "Одиниця виміру",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "disallow_negative_balance",
+   "fieldtype": "Check",
+   "label": "Заборонити від'ємний залишок"
+  },
+  {
+   "fieldname": "section_description",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Опис"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-17 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Analytics",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

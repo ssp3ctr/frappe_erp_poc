@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "field:template_name",
+ "creation": "2026-03-17 13:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "template_name",
+  "operation_code",
+  "reference_doctype",
+  "column_break_1",
+  "is_disabled",
+  "allow_manual_entry",
+  "section_logic",
+  "rules",
+  "section_rules",
+  "source_type",
+  "target_type",
+  "section_description",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "label": "Назва операції",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "operation_code",
+   "fieldtype": "Data",
+   "label": "Код операції (ID)",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Прив'язаний до документа",
+   "options": "DocType",
+   "description": "Документ, який тригерить цей шаблон (напр. Fin Order)"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_disabled",
+   "fieldtype": "Check",
+   "label": "Вимкнено"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_manual_entry",
+   "fieldtype": "Check",
+   "label": "Дозволити ручне створення"
+  },
+  {
+   "fieldname": "section_logic",
+   "fieldtype": "Section Break",
+   "label": "Логіка проводок (Маппінг)"
+  },
+  {
+   "fieldname": "rules",
+   "fieldtype": "Table",
+   "label": "Правила",
+   "options": "Transaction Template Rules"
+  },
+  {
+   "fieldname": "section_rules",
+   "fieldtype": "Section Break",
+   "label": "Глобальна валідація типів"
+  },
+  {
+   "fieldname": "source_type",
+   "fieldtype": "Link",
+   "label": "Дозволений тип джерела",
+   "options": "Analytics Type"
+  },
+  {
+   "fieldname": "target_type",
+   "fieldtype": "Link",
+   "label": "Дозволений тип призначення",
+   "options": "Analytics Type"
+  },
+  {
+   "fieldname": "section_description",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Опис бізнес-процесу"
+  }
+ ],
+ "modified": "2026-03-17 19:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Transaction Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

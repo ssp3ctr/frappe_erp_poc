@@ -1,0 +1,159 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "hash",
+ "creation": "2026-05-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "item_code",
+  "warehouse",
+  "qty",
+  "amount",
+  "status",
+  "is_active",
+  "posting_date",
+  "column_break_1",
+  "parent_unit_id",
+  "source_doctype",
+  "source_name",
+  "reservation_name",
+  "section_analytics",
+  "characteristic",
+  "quality",
+  "supplier",
+  "batch_no"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Номенклатура",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Склад",
+   "options": "Warehouse",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Кількість",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Сума (вартість)",
+   "options": "UAH"
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Статус",
+   "options": "Available\nReserved\nSold\nTransferred\nConsumed\nAdjusted\nTransformed",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Активний",
+   "search_index": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Дата проведення",
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "parent_unit_id",
+   "fieldtype": "Link",
+   "label": "Батьківський юніт",
+   "options": "Stock Unit"
+  },
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Data",
+   "label": "Тип документа-джерела"
+  },
+  {
+   "fieldname": "source_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Документ-джерело",
+   "options": "source_doctype"
+  },
+  {
+   "fieldname": "reservation_name",
+   "fieldtype": "Data",
+   "label": "Резервування",
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_analytics",
+   "fieldtype": "Section Break",
+   "label": "Аналітики партії"
+  },
+  {
+   "fieldname": "characteristic",
+   "fieldtype": "Data",
+   "label": "Характеристика"
+  },
+  {
+   "fieldname": "quality",
+   "fieldtype": "Data",
+   "label": "Якість"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Data",
+   "label": "Постачальник"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Data",
+   "label": "Номер партії"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Stock Unit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

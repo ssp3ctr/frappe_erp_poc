@@ -1,0 +1,24 @@
+# ── Ignore everything by default ─────────────────────────────────────────────
+/*
+
+# ── Whitelist: custom apps only ───────────────────────────────────────────────
+!/apps/
+/apps/*
+!/apps/fin_core/
+!/apps/warehouse_utxo/
+
+# ── Whitelist: this file ──────────────────────────────────────────────────────
+!/.gitignore
+
+# ── Standard ignores (apply inside whitelisted folders) ──────────────────────
+**/*.pyc
+**/__pycache__/
+**/node_modules/
+**/*.log
+**/.DS_Store
+**/*.egg-info/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/dist/
+**/build/

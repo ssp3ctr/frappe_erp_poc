@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-17 17:10:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "details_tab",
+  "customer_analytics",
+  "posting_date",
+  "warehouse",
+  "sales_order",
+  "column_break_1",
+  "status",
+  "total_amount",
+  "naming_series",
+  "items_section",
+  "items",
+  "transactions_tab",
+  "transactions_html",
+  "stock_units_tab",
+  "stock_units",
+  "audit_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Деталі"
+  },
+  {
+   "fieldname": "customer_analytics",
+   "fieldtype": "Link",
+   "label": "Клієнт (Розрахунки)",
+   "options": "Analytics",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Дата проведення"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Склад",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Замовлення (резерв)",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Статус",
+   "options": "Draft\nSubmitted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Загальна сума",
+   "options": "UAH",
+   "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Серія",
+   "options": "ORD-.YYYY.-.#####",
+   "default": "ORD-.YYYY.-.#####",
+   "hidden": 1
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "Склад замовлення"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Товари",
+   "options": "Fin Order Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transactions_tab",
+   "fieldtype": "Tab Break",
+   "label": "Проводки"
+  },
+  {
+   "fieldname": "transactions_html",
+   "fieldtype": "HTML",
+   "label": "Список транзакцій"
+  },
+  {
+   "fieldname": "stock_units_tab",
+   "fieldtype": "Tab Break",
+   "label": "Складські проводки"
+  },
+  {
+   "fieldname": "stock_units",
+   "fieldtype": "Table",
+   "label": "Stock Units",
+   "options": "Fin Order Stock Unit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "audit_tab",
+   "fieldtype": "Tab Break",
+   "label": "Коментарі"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "modified": "2026-05-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Fin Order",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

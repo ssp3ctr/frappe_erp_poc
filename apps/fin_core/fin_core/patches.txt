@@ -1,0 +1,5 @@
+fin_core.patches.v1_0.initial_setup_of_accounts
+fin_core.patches.v1_0.set_default_uow_settings
+fin_core.patches.v1_0.add_composite_indices
+fin_core.patches.v1_0.cleanup_fin_order_stock_units
+fin_core.patches.v1_0.backfill_stock_unit_posting_date

@@ -1,0 +1,52 @@
+{
+ "doctype": "DocType",
+ "istable": 1,
+ "editable_grid": 1,
+ "creation": "2026-05-07 00:00:00.000000",
+ "modified": "2026-05-07 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Sales Order Item",
+ "owner": "Administrator",
+ "field_order": [
+  "item_analytics",
+  "qty",
+  "rate",
+  "amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_analytics",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Номенклатура",
+   "options": "Analytics",
+   "reqd": 1
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Кількість",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Ціна",
+   "options": "UAH"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Сума",
+   "options": "UAH",
+   "read_only": 1
+  }
+ ],
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC"
+}

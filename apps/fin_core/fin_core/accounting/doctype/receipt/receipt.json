@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-05-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "naming_series",
+  "posting_date",
+  "warehouse",
+  "customer_analytics",
+  "items_section",
+  "items",
+  "total_amount",
+  "financial_tab",
+  "financial_postings_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Серія",
+   "options": "RCP-.YYYY.-.#####",
+   "default": "RCP-.YYYY.-.#####",
+   "hidden": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Дата проведення",
+   "reqd": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Склад",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_analytics",
+   "fieldtype": "Link",
+   "label": "Клієнт (Розрахунки)",
+   "options": "Analytics",
+   "reqd": 1
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "Товари"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Позиції",
+   "options": "Receipt Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Загальна сума",
+   "options": "UAH",
+   "read_only": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "financial_tab",
+   "fieldtype": "Tab Break",
+   "label": "Фінансові проводки"
+  },
+  {
+   "fieldname": "financial_postings_html",
+   "fieldtype": "HTML",
+   "label": "Аналітичні проводки"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-05-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Receipt",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

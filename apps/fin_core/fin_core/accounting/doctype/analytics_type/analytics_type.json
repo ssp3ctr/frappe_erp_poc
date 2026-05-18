@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "field:type_name",
+ "creation": "2026-03-17 11:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "type_name",
+  "base_type",
+  "column_break_1",
+  "is_internal",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "type_name",
+   "fieldtype": "Data",
+   "label": "Назва типу",
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "base_type",
+   "fieldtype": "Select",
+   "label": "Базовий вимір",
+   "options": "Currency\nQuantity",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Визначає, що саме обліковується: гроші чи одиниці ТМЦ/послуг."
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_internal",
+   "fieldtype": "Check",
+   "label": "Внутрішній (технічний)",
+   "description": "Для системних транзакцій, які не відображаються клієнтам."
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Опис правил використання"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "modified": "2026-03-17 11:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Analytics Type",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "creation": "2026-03-17 13:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "istable": 1,
+ "module": "Accounting",
+ "name": "Transaction Template Rules",
+ "owner": "Administrator",
+ "fields": [
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "label": "Назва правила",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_per_row",
+   "fieldtype": "Check",
+   "label": "Построково (items)"
+  },
+  {
+   "fieldname": "calculation_type",
+   "fieldtype": "Select",
+   "label": "Тип розрахунку",
+   "options": "Amount\nQuantity",
+   "default": "Amount",
+   "reqd": 1,
+   "description": "Amount → заповнює debit/credit; Quantity → заповнює qty (кількісна аналітика)"
+  },
+  {
+   "fieldname": "source_field",
+   "fieldtype": "Data",
+   "label": "Поле значення (source_field)",
+   "description": "Поле одиниці або документа, з якого береться значення: 'amount' для суми, 'qty' для кількості"
+  },
+  {
+   "fieldname": "target_type",
+   "fieldtype": "Select",
+   "label": "Тип призначення",
+   "options": "Constant\nField",
+   "default": "Constant"
+  },
+  {
+   "fieldname": "target_value",
+   "fieldtype": "Data",
+   "label": "Значення / Поле призначення",
+   "description": "Назва аналітики або назва поля"
+  },
+  {
+   "fieldname": "source_amount_field",
+   "fieldtype": "Data",
+   "label": "Поле суми у джерелі",
+   "description": "Напр. total_amount або amount"
+  },
+  {
+   "fieldname": "source_qty_field",
+   "fieldtype": "Data",
+   "label": "Поле кількості у джерелі",
+   "description": "Напр. qty"
+  },
+  {
+   "fieldname": "debit_credit",
+   "fieldtype": "Select",
+   "label": "Дебет / Кредит",
+   "options": "Debit\nCredit",
+   "default": "Debit",
+   "reqd": 1,
+   "description": "Яка сторона рахунку: Debit (збільшення активу/витрати) або Credit (збільшення пасиву/доходу)"
+  }
+ ],
+ "modified": "2026-03-17 20:00:00.000000",
+ "modified_by": "Administrator"
+}
