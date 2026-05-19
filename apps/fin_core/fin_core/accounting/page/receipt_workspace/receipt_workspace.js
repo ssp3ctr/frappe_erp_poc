@@ -58,7 +58,7 @@ class ReceiptWorkspace {
 		return {
 			doctype:            "Receipt",
 			name:               null,
-			naming_series:      "RCP-.YYYY.-",
+			naming_series:      "RCP-.YYYY.-.#####",
 			docstatus:          0,
 			posting_date:       frappe.datetime.get_today(),
 			warehouse:          "",
@@ -173,7 +173,7 @@ class ReceiptWorkspace {
 		const d = this.state.doc;
 		const payload = {
 			doctype:            "Receipt",
-			naming_series:      d.naming_series || "RCP-.YYYY.-",
+			naming_series:      d.naming_series || "RCP-.YYYY.-.#####",
 			posting_date:       d.posting_date,
 			warehouse:          d.warehouse,
 			customer_analytics: d.customer_analytics,
