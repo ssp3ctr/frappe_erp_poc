@@ -4,5 +4,12 @@
  "name": "receipt-workspace",
  "page_name": "receipt-workspace",
  "title": "Оприбуткування",
- "roles": []
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "All"
+  }
+ ]
 }
