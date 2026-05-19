@@ -102,14 +102,24 @@ class ReceiptWorkspace {
 				args,
 				callback: (r) => {
 					if (r && r.exc) {
-						// Server exception already displayed by Frappe's cleanup handler
+						// 200 response with server exception; Frappe logs it to console
 						reject(new Error(r.exc_type || "ServerError"));
 					} else {
 						resolve(r ? r.message : undefined);
 					}
 				},
 				error: (xhr) => {
-					const msg = xhr?.responseJSON?.exception || xhr?.statusText || "Request failed";
+					// Frappe calls error_callback() with no args for 403/404/500 etc.
+					// and already shows its own dialog for those status codes.
+					// For unhandled status codes the raw XHR is passed.
+					if (!xhr) {
+						reject(new Error("ServerError"));
+						return;
+					}
+					const msg = xhr?.responseJSON?.exception
+						|| xhr?.responseJSON?.message
+						|| (xhr?.status ? `HTTP ${xhr.status}` : null)
+						|| "ServerError";
 					reject(new Error(msg));
 				},
 			});
