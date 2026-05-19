@@ -1,0 +1,8 @@
+{
+ "doctype": "Page",
+ "module": "Accounting",
+ "name": "receipt-workspace",
+ "page_name": "receipt-workspace",
+ "title": "Оприбуткування",
+ "roles": []
+}
