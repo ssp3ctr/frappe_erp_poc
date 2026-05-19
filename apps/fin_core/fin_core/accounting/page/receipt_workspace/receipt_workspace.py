@@ -1,5 +1,18 @@
+import json
+
 import frappe
 from frappe.utils import today, flt
+
+# Fields the frontend is allowed to set on the parent Receipt document.
+# Keeping this explicit prevents any stale Frappe-internal fields (docstatus,
+# amended_from, owner, …) that may leak from a previous as_dict() response
+# from reaching insert()/save() and triggering unexpected validation errors.
+_RECEIPT_FIELDS = frozenset({"naming_series", "posting_date", "warehouse", "customer_analytics"})
+
+# Fields allowed on each Receipt Item row.
+_ITEM_FIELDS = frozenset({"name", "item_analytics", "qty", "rate", "amount"})
+
+_DEFAULT_SERIES = "RCP-.YYYY.-.#####"
 
 
 # ---------------------------------------------------------------------------
@@ -13,18 +26,21 @@ def get_receipt(name: str) -> dict:
 
 
 @frappe.whitelist()
-def save_receipt(doc: dict) -> dict:
-    import json
+def save_receipt(doc: str) -> dict:
+    """Create or update a Receipt draft. Returns the serialised document."""
     if isinstance(doc, str):
         doc = json.loads(doc)
 
+    payload = _extract_payload(doc)
     name = doc.get("name")
+
     if name and frappe.db.exists("Receipt", name):
         receipt = frappe.get_doc("Receipt", name)
-        receipt.update(doc)
+        receipt.update(payload)
         receipt.save(ignore_permissions=True)
     else:
-        receipt = frappe.get_doc({"doctype": "Receipt", **doc})
+        payload.setdefault("naming_series", _DEFAULT_SERIES)
+        receipt = frappe.get_doc({"doctype": "Receipt", **payload})
         receipt.insert(ignore_permissions=True)
 
     frappe.db.commit()
@@ -73,7 +89,6 @@ def get_template_preview(doc: dict) -> dict:
     Returns what postings *would* look like given the current draft totals,
     grouped by account for the balance indicator.
     """
-    import json
     if isinstance(doc, str):
         doc = json.loads(doc)
 
@@ -163,16 +178,35 @@ def get_warehouse_options() -> list:
 # Private helpers
 # ---------------------------------------------------------------------------
 
-def _serialize(doc) -> dict:
-    d = doc.as_dict()
-    d["items"] = [
-        {
-            "name":           r.name,
-            "item_analytics": r.item_analytics,
-            "qty":            float(r.qty or 0),
-            "rate":           float(r.rate or 0),
-            "amount":         float(r.amount or 0),
-        }
-        for r in doc.items
+def _extract_payload(doc: dict) -> dict:
+    """Return only the fields the frontend is allowed to set."""
+    payload = {k: doc[k] for k in _RECEIPT_FIELDS if k in doc}
+    payload["items"] = [
+        {k: row[k] for k in _ITEM_FIELDS if k in row}
+        for row in (doc.get("items") or [])
     ]
-    return d
+    return payload
+
+
+def _serialize(doc) -> dict:
+    """Return the minimal dict the frontend needs, with no Frappe internals."""
+    return {
+        "name":               doc.name,
+        "doctype":            "Receipt",
+        "naming_series":      doc.naming_series,
+        "docstatus":          doc.docstatus,
+        "posting_date":       str(doc.posting_date) if doc.posting_date else None,
+        "warehouse":          doc.warehouse,
+        "customer_analytics": doc.customer_analytics,
+        "total_amount":       float(doc.total_amount or 0),
+        "items": [
+            {
+                "name":           r.name,
+                "item_analytics": r.item_analytics,
+                "qty":            float(r.qty or 0),
+                "rate":           float(r.rate or 0),
+                "amount":         float(r.amount or 0),
+            }
+            for r in doc.items
+        ],
+    }
